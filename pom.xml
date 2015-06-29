@@ -66,6 +66,22 @@
         </repository>
     </repositories>
 
+    <profiles>
+        <profile>
+            <id>mavenCentral</id>
+            <distributionManagement>
+                <repository>
+                    <id>central-releases-staging</id>
+                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+                </repository>
+                <snapshotRepository>
+                    <id>central-snapshots</id>
+                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+
     <properties>
         <dependency.postgresql.version>9.4-1201-jdbc41</dependency.postgresql.version>
         <dependency.mysql.version>5.1.35</dependency.mysql.version>
