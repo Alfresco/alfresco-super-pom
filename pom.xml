@@ -18,6 +18,16 @@
         <name>Alfresco Software</name>
         <url>http://www.alfresco.org/</url>
     </organization>
+
+    <developers>
+        <developer>
+            <id>Engineering</id>
+            <name>Alfresco Software - Engineering team</name>
+            <url>http://www.alfresco.org/</url>
+            <timezone>Europe/London</timezone>
+        </developer>
+    </developers>
+
     <licenses>
         <license>
             <name>GNU Lesser General Public License v3.0 or later</name>
