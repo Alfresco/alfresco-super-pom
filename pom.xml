@@ -10,6 +10,8 @@
     <version>6</version>
     <name>Alfresco</name>
 
+    <description>Alfresco generic, corporate POM file for Maven builds</description>
+
     <url>http://www.alfresco.org/</url>
     <inceptionYear>2005</inceptionYear>
     <organization>
@@ -34,6 +36,7 @@
     <scm>
         <connection>scm:git:https://github.com/Alfresco/alfresco-super-pom</connection>
         <developerConnection>scm:git:https://github.com/Alfresco/alfresco-super-pom</developerConnection>
+        <url>https://github.com/Alfresco/alfresco-super-pom</url>
     </scm>
     <distributionManagement>
         <repository>
@@ -79,6 +82,24 @@
                     <url>https://oss.sonatype.org/content/repositories/snapshots</url>
                 </snapshotRepository>
             </distributionManagement>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 
