@@ -7,7 +7,7 @@
     <groupId>org.alfresco</groupId>
     <artifactId>alfresco-super-pom</artifactId>
     <packaging>pom</packaging>
-    <version>7</version>
+    <version>8</version>
     <name>Alfresco</name>
 
     <description>Alfresco generic, corporate POM file for Maven builds</description>
@@ -198,6 +198,10 @@
                 <plugin>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>2.10.3</version>
+                    <configuration>
+                        <!-- <additionalparam>-Xmaxwarns 10000 -Xmaxerrs 10000</additionalparam> to detect more than 100 error -->
+                        <additionalparam>-Xdoclint:none</additionalparam>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-eclipse-plugin</artifactId>
