@@ -7,7 +7,7 @@
     <groupId>org.alfresco</groupId>
     <artifactId>alfresco-super-pom</artifactId>
     <packaging>pom</packaging>
-    <version>7</version>
+    <version>8</version>
     <name>Alfresco</name>
 
     <description>Alfresco generic, corporate POM file for Maven builds</description>
@@ -126,8 +126,8 @@
     </profiles>
 
     <properties>
-        <dependency.postgresql.version>9.4.1208</dependency.postgresql.version>
-        <dependency.mysql.version>5.1.39</dependency.mysql.version>
+        <dependency.postgresql.version>9.4.1212</dependency.postgresql.version>
+        <dependency.mysql.version>5.1.40</dependency.mysql.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.build.sourceVersion>1.8</maven.build.sourceVersion>
     </properties>
@@ -142,7 +142,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.5.1</version>
+                    <version>3.6.0</version>
                     <configuration>
                         <source>${maven.build.sourceVersion}</source>
                         <target>${maven.build.sourceVersion}</target>
@@ -169,7 +169,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-assembly-plugin</artifactId>
-                    <version>2.6</version>
+                    <version>3.0.0</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-dependency-plugin</artifactId>
@@ -193,7 +193,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-source-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>3.0.1</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-failsafe-plugin</artifactId>
@@ -209,7 +209,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>2.10.3</version>
+                    <version>2.10.4</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-eclipse-plugin</artifactId>
@@ -225,7 +225,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>3.0.2</version>
                     <configuration>
                         <skipIfEmpty>true</skipIfEmpty>
                         <archive>
@@ -242,6 +242,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-war-plugin</artifactId>
+                    <!-- Avoid 3.0.0, which is not compatible with the Alfresco SDK -->
                     <version>2.6</version>
                     <configuration>
                         <archive>
@@ -267,7 +268,7 @@
                 <plugin>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-maven-plugin</artifactId>
-                    <version>9.3.9.v20160517</version>
+                    <version>9.3.13.v20161014</version>
                 </plugin>
                 <plugin>
                     <groupId>org.jibx</groupId>
@@ -289,7 +290,7 @@
                         <dependency>
                             <groupId>org.apache.bcel</groupId>
                             <artifactId>bcel</artifactId>
-                            <version>6.0-RC3</version>
+                            <version>6.0</version>
                         </dependency>
                     </dependencies>
                 </plugin>
@@ -354,13 +355,12 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>versions-maven-plugin</artifactId>
-                    <!-- Avoid 2.2, which has a bug generating NPE -->
-                    <version>2.1</version>
+                    <version>2.3</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
-                    <version>1.10</version>
+                    <version>1.12</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -370,7 +370,7 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>license-maven-plugin</artifactId>
-                    <version>1.9</version>
+                    <version>1.10</version>
                 </plugin>
                 <plugin>
                     <groupId>com.google.code.maven-replacer-plugin</groupId>
@@ -519,7 +519,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.6</version>
+                <version>3.7</version>
             </plugin>
             <plugin>
                 <artifactId>maven-jxr-plugin</artifactId>
@@ -531,7 +531,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
-                <version>3.0.3</version>
+                <version>3.0.4</version>
             </plugin>
         </plugins>
     </reporting>
