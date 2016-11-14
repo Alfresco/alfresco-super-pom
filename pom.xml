@@ -111,6 +111,18 @@
                 </plugins>
             </build>
         </profile>
+
+        <!-- Automatically triggered on Java8 -->
+        <!-- Allows to generate javadoc regardless of errors -->
+        <profile>
+            <id>doclint-java8-max</id>
+            <activation>
+                <jdk>[1.8,)</jdk>
+            </activation>
+            <properties>
+                <additionalparam>-Xdoclint:none</additionalparam>
+            </properties>
+        </profile>
     </profiles>
 
     <properties>
