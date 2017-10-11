@@ -7,7 +7,7 @@
     <groupId>org.alfresco</groupId>
     <artifactId>alfresco-super-pom</artifactId>
     <packaging>pom</packaging>
-    <version>8</version>
+    <version>9</version>
     <name>Alfresco</name>
 
     <description>Alfresco generic, corporate POM file for Maven builds</description>
@@ -55,6 +55,16 @@
             <url>https://artifacts.alfresco.com/nexus/content/repositories/releases</url>
         </repository>
     </distributionManagement>
+
+    <pluginRepositories>
+        <pluginRepository>
+        <id>alfresco-public</id>
+        <url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
     <repositories>
         <repository>
