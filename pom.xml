@@ -7,7 +7,7 @@
     <groupId>org.alfresco</groupId>
     <artifactId>alfresco-super-pom</artifactId>
     <packaging>pom</packaging>
-    <version>9-REPO-3918_java_11-SNAPSHOT</version>
+    <version>10</version>
     <name>Alfresco</name>
 
     <description>Alfresco generic, corporate POM file for Maven builds</description>
@@ -297,6 +297,7 @@
                                 </exclusion>
                             </exclusions>
                         </dependency>
+                        <!-- REPO-3918 Workaround for https://github.com/jibx/jibx/issues/9 -->
                         <dependency>
                             <groupId>org.apache.bcel</groupId>
                             <artifactId>bcel</artifactId>
