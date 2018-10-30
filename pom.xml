@@ -1,13 +1,12 @@
 <!-- ********************************************************* -->
 <!-- **            Alfresco Corporate Parent POM            ** -->
 <!-- ********************************************************* -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.alfresco</groupId>
     <artifactId>alfresco-super-pom</artifactId>
     <packaging>pom</packaging>
-    <version>9</version>
+    <version>10-SNAPSHOT</version>
     <name>Alfresco</name>
 
     <description>Alfresco generic, corporate POM file for Maven builds</description>
@@ -40,14 +39,15 @@
     </issueManagement>
 
     <prerequisites>
-        <maven>3.2.5</maven>
+        <maven>3.3.9</maven>
     </prerequisites>
 
     <scm>
-        <connection>scm:git:https://github.com/Alfresco/alfresco-super-pom</connection>
-        <developerConnection>scm:git:https://github.com/Alfresco/alfresco-super-pom</developerConnection>
+        <connection>scm:git:git@github.com:Alfresco/alfresco-super-pom</connection>
+        <developerConnection>scm:git:git@github.com:Alfresco/alfresco-super-pom</developerConnection>
         <url>https://github.com/Alfresco/alfresco-super-pom</url>
-    </scm>
+      <tag>HEAD</tag>
+  </scm>
     <distributionManagement>
         <repository>
             <id>alfresco-internal</id>
@@ -136,8 +136,8 @@
     </profiles>
 
     <properties>
-        <dependency.postgresql.version>9.4.1212</dependency.postgresql.version>
-        <dependency.mysql.version>5.1.40</dependency.mysql.version>
+        <dependency.postgresql.version>42.2.5</dependency.postgresql.version>
+        <dependency.mysql.version>5.1.47</dependency.mysql.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.build.sourceVersion>1.8</maven.build.sourceVersion>
     </properties>
@@ -148,11 +148,12 @@
             <plugins>
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>3.1.0</version>
                 </plugin>
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.6.0</version>
+                    <version>3.8.0</version>
                     <configuration>
                         <source>${maven.build.sourceVersion}</source>
                         <target>${maven.build.sourceVersion}</target>
@@ -168,22 +169,22 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.0.1</version>
+                    <version>3.1.0</version>
                     <configuration>
                         <includeEmptyDirs>true</includeEmptyDirs>
                     </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-site-plugin</artifactId>
-                    <version>3.5.1</version>
+                    <version>3.7.1</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-assembly-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>3.1.0</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-dependency-plugin</artifactId>
-                    <version>2.10</version>
+                    <version>3.1.1</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-enforcer-plugin</artifactId>
@@ -191,7 +192,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-help-plugin</artifactId>
-                    <version>2.2</version>
+                    <version>3.1.0</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-release-plugin</artifactId>
@@ -207,11 +208,11 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>2.19.1</version>
+                    <version>2.22.1</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.19.1</version>
+                    <version>2.22.1</version>
                     <configuration>
                         <redirectTestOutputToFile>true</redirectTestOutputToFile>
                         <runOrder>alphabetical</runOrder>
@@ -219,7 +220,10 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>2.10.4</version>
+                    <version>3.0.1</version>
+                    <configuration>
+                        <doclint>none</doclint>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-eclipse-plugin</artifactId>
@@ -227,7 +231,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-shade-plugin</artifactId>
-                    <version>2.4.3</version>
+                    <version>3.2.0</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-antrun-plugin</artifactId>
@@ -235,7 +239,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.0.2</version>
+                    <version>3.1.0</version>
                     <configuration>
                         <skipIfEmpty>true</skipIfEmpty>
                         <archive>
@@ -278,18 +282,18 @@
                 <plugin>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-maven-plugin</artifactId>
-                    <version>9.3.13.v20161014</version>
+                    <version>9.4.12.v20180830</version>
                 </plugin>
                 <plugin>
                     <groupId>org.jibx</groupId>
                     <artifactId>maven-jibx-plugin</artifactId>
-                    <version>1.2.6</version>
+                    <version>1.3.1</version>
                     <!-- ACE-3667: Workaround for JIBX-515 -->
                     <dependencies>
                         <dependency>
                             <groupId>org.jibx</groupId>
                             <artifactId>jibx-bind</artifactId>
-                            <version>1.2.6</version>
+                            <version>1.3.1</version>
                             <exclusions>
                                 <exclusion>
                                     <artifactId>bcel</artifactId>
@@ -297,10 +301,11 @@
                                 </exclusion>
                             </exclusions>
                         </dependency>
+                        <!-- REPO-3918 Workaround for https://github.com/jibx/jibx/issues/9 -->
                         <dependency>
                             <groupId>org.apache.bcel</groupId>
                             <artifactId>bcel</artifactId>
-                            <version>6.0</version>
+                            <version>6.2.99</version>
                         </dependency>
                     </dependencies>
                 </plugin>
@@ -355,22 +360,22 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
-                    <version>1.5.0</version>
+                    <version>1.6.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>rpm-maven-plugin</artifactId>
-                    <version>2.1.5</version>
+                    <version>2.2.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>versions-maven-plugin</artifactId>
-                    <version>2.3</version>
+                    <version>2.7</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
-                    <version>1.12</version>
+                    <version>3.0.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -380,7 +385,7 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>license-maven-plugin</artifactId>
-                    <version>1.10</version>
+                    <version>1.16</version>
                 </plugin>
                 <plugin>
                     <groupId>com.google.code.maven-replacer-plugin</groupId>
@@ -390,12 +395,12 @@
                 <plugin>
                     <groupId>org.sonatype.plugins</groupId>
                     <artifactId>nexus-staging-maven-plugin</artifactId>
-                    <version>1.6.7</version>
+                    <version>1.6.8</version>
                 </plugin>
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>0.7.7.201606060606</version>
+                    <version>0.8.2</version>
                 </plugin>
 
                 <!--This plugin's configuration is used to store Eclipse m2e settings 
@@ -501,11 +506,10 @@
         <plugins>
             <plugin>
                 <artifactId>maven-site-plugin</artifactId>
-                <version>3.5.1</version>
             </plugin>
             <plugin>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.9</version>
+                <version>3.0.0</version>
                 <configuration>
                     <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
                 </configuration>
@@ -525,15 +529,15 @@
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-report-plugin</artifactId>
-                <version>2.19.1</version>
+                <version>2.22.1</version>
             </plugin>
             <plugin>
                 <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.7</version>
+                <version>3.10.0</version>
             </plugin>
             <plugin>
                 <artifactId>maven-jxr-plugin</artifactId>
-                <version>2.5</version>
+                <version>3.0.0</version>
                 <configuration>
                     <aggregate>false</aggregate>
                 </configuration>
@@ -541,7 +545,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
-                <version>3.0.4</version>
+                <version>3.0.5</version>
             </plugin>
         </plugins>
     </reporting>
