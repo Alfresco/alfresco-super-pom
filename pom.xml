@@ -6,7 +6,7 @@
     <groupId>org.alfresco</groupId>
     <artifactId>alfresco-super-pom</artifactId>
     <packaging>pom</packaging>
-    <version>10</version>
+    <version>11-SNAPSHOT</version>
     <name>Alfresco</name>
 
     <description>Alfresco generic, corporate POM file for Maven builds</description>
@@ -46,7 +46,7 @@
         <connection>scm:git:git@github.com:Alfresco/alfresco-super-pom</connection>
         <developerConnection>scm:git:git@github.com:Alfresco/alfresco-super-pom</developerConnection>
         <url>https://github.com/Alfresco/alfresco-super-pom</url>
-      <tag>alfresco-super-pom-10</tag>
+      <tag>HEAD</tag>
   </scm>
     <distributionManagement>
         <repository>
