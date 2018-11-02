@@ -6,7 +6,7 @@
     <groupId>org.alfresco</groupId>
     <artifactId>alfresco-super-pom</artifactId>
     <packaging>pom</packaging>
-    <version>10-SNAPSHOT</version>
+    <version>11-SNAPSHOT</version>
     <name>Alfresco</name>
 
     <description>Alfresco generic, corporate POM file for Maven builds</description>
