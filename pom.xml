@@ -46,8 +46,9 @@
         <connection>scm:git:git@github.com:Alfresco/alfresco-super-pom</connection>
         <developerConnection>scm:git:git@github.com:Alfresco/alfresco-super-pom</developerConnection>
         <url>https://github.com/Alfresco/alfresco-super-pom</url>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
+
     <distributionManagement>
         <repository>
             <id>alfresco-internal</id>
@@ -256,8 +257,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-war-plugin</artifactId>
-                    <!-- Avoid 3.0.0, which is not compatible with the Alfresco SDK -->
-                    <version>2.6</version>
+                    <version>3.2.3</version>
                     <configuration>
                         <archive>
                             <manifest>
