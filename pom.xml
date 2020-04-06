@@ -136,8 +136,8 @@
     </profiles>
 
     <properties>
-        <dependency.postgresql.version>42.2.9</dependency.postgresql.version>
-        <dependency.mysql.version>5.1.48</dependency.mysql.version>
+        <dependency.postgresql.version>42.2.12</dependency.postgresql.version>
+        <dependency.mysql.version>8.0.19</dependency.mysql.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.build.sourceVersion>1.8</maven.build.sourceVersion>
     </properties>
@@ -188,7 +188,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>3.0.0-M2</version>
+                    <version>1.4.1</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-help-plugin</artifactId>
