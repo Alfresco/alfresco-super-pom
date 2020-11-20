@@ -1,0 +1,32 @@
+# Auto-generated .travis.yml file
+# Generated 2020-11-20 19:46:32 from Bamboo build plan PLAT-ASP
+
+language: java
+
+jdk:
+  - openjdk11
+
+dist: xenial
+
+stages:
+  - name: Default Stage
+  - name: Release
+    if: fork = false AND (branch = master OR branch =~ /support\/.*/) AND type != pull_request AND commit_message !~ /\[no-release\]/
+
+jobs:
+  include:
+    - stage: "Default Stage"
+      name: "Build"
+      script:
+        # Build
+        - pushd "alfresco-super-pom" && mvn --batch-mode clean -DskipTests && popd
+    # Stage: Release Tika patched
+    - stage: "Release"
+      name: "Release"
+      script:
+        # Release Prepare
+        - pushd "alfresco-super-pom" && GIT_AUTHOR_NAME=alfresco-build GIT_AUTHOR_EMAIL=build@alfresco.com GIT_COMMITTER_NAME=alfresco-build GIT_COMMITTER_EMAIL=build@alfresco.com mvn release:prepare -DreleaseVersion=${RELEASE_VERSION}  -DdevelopmentVersion=${DEVELOPMENT_VERSION}  -DskipTests  -Darguments=-DskipTests && popd
+        # Release Maven Central
+        - pushd "alfresco-super-pom" && HOME=/var/lib/bamboo-agent mvn deploy -PmavenCentral -Dgpg.passphrase=${GPG_PASSPHRASE} && popd
+        # Release Perform - Alfresco Nexus
+        - pushd "alfresco-super-pom" && GIT_AUTHOR_NAME=alfresco-build GIT_AUTHOR_EMAIL=build@alfresco.com GIT_COMMITTER_NAME=alfresco-build GIT_COMMITTER_EMAIL=build@alfresco.com mvn release:perform -DreleaseVersion=${RELEASE_VERSION}  -DdevelopmentVersion=${DEVELOPMENT_VERSION}  -DskipTests  -Darguments=-DskipTests && popd
