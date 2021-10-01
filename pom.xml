@@ -312,7 +312,7 @@
                 <plugin>
                     <groupId>org.alfresco.maven.plugin</groupId>
                     <artifactId>alfresco-maven-plugin</artifactId>
-                    <version>2.2.0</version>
+                    <version>4.3.0</version>
                     <configuration>
                         <attachClasses>true</attachClasses>
                         <ampBuildDirectory>${project.build.directory}/${project.build.finalName}</ampBuildDirectory>
