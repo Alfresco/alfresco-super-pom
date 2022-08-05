@@ -139,7 +139,7 @@
         <dependency.postgresql.version>42.2.12</dependency.postgresql.version>
         <dependency.mysql.version>8.0.19</dependency.mysql.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.build.sourceVersion>1.8</maven.build.sourceVersion>
+        <maven.build.sourceVersion>11</maven.build.sourceVersion>
     </properties>
 
     <build>
