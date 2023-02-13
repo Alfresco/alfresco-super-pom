@@ -1,0 +1,49 @@
+name: Alfresco Super POM CI
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+env:
+  MAVEN_USERNAME: ${{ secrets.NEXUS_USERNAME }}
+  MAVEN_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
+  GIT_USERNAME: ${{ secrets.BOT_GITHUB_USERNAME }}
+  GIT_PASSWORD: ${{ secrets.BOT_GITHUB_TOKEN }}
+  RELEASE_VERSION: "13"
+  DEVELOPMENT_VERSION: "14-SNAPSHOT"
+
+jobs:
+  build:
+    name: "Build"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: Alfresco/alfresco-build-tools/.github/actions/setup-java-build@v1.34.2
+      - name: "Build"
+        run: mvn -B -V install -DskipTests
+
+  release:
+    name: "Release"
+    runs-on: ubuntu-latest
+    needs: build
+    if: >
+      github.ref_name == 'master' &&
+      github.event_name != 'pull_request' &&
+      contains(github.event.head_commit.message, '[release]')
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+      - uses: Alfresco/alfresco-build-tools/.github/actions/get-build-info@v1.34.2
+      - uses: Alfresco/alfresco-build-tools/.github/actions/setup-java-build@v1.34.2
+      - uses: Alfresco/alfresco-build-tools/.github/actions/configure-git-author@v1.34.2
+        with:
+          username: ${{ secrets.BOT_GITHUB_USERNAME }}
+          email: ${{ secrets.BOT_GITHUB_EMAIL }}
+      - name: "Release"
+        run: bash ci/release.sh
