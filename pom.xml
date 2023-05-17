@@ -139,7 +139,7 @@
         <dependency.postgresql.version>42.2.12</dependency.postgresql.version>
         <dependency.mysql.version>8.0.19</dependency.mysql.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.build.sourceVersion>11</maven.build.sourceVersion>
+        <maven.build.sourceVersion>17</maven.build.sourceVersion>
     </properties>
 
     <build>
@@ -153,8 +153,9 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.0</version>
+                    <version>3.11.0</version>
                     <configuration>
+                        <release>${maven.build.sourceVersion}</release>
                         <source>${maven.build.sourceVersion}</source>
                         <target>${maven.build.sourceVersion}</target>
                     </configuration>
