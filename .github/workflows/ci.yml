@@ -46,5 +46,6 @@ jobs:
         with:
           username: ${{ secrets.BOT_GITHUB_USERNAME }}
           email: ${{ secrets.BOT_GITHUB_EMAIL }}
+          global: true
       - name: "Release"
         run: bash ci/release.sh
